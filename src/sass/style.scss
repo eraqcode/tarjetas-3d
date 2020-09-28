@@ -1,0 +1,71 @@
+@import 'tailwindcss/base';
+
+@import 'tailwindcss/components';
+
+@import 'tailwindcss/utilities';
+
+.cards {
+    @apply flex; 
+    @apply flex-wrap;
+    @apply flex-row;
+    @apply justify-around;
+    perspective: 700;
+}
+
+.wrap {
+    @apply w-48;
+    @apply h-64;
+    @apply mt-4
+}
+
+.card {
+    @apply w-full;
+    @apply h-full;
+    @apply relative;
+    transform-style: preserve-3d;
+    transition: 3s;
+    transition-delay: 2s;
+}
+
+.card:hover{
+    transform: rotateY(180deg);
+}
+
+.front, .back {
+    @apply w-full;
+    @apply h-full;
+    @apply absolute;
+    left: 0;
+    top: 0;
+    backface-visibility: hidden;
+}
+
+.front {
+    filter: grayscale(1);
+}
+.front:hover {
+    filter: grayscale(0);
+}
+
+
+.back {
+    @apply flex; 
+    @apply justify-center;
+    @apply items-center;
+    @apply text-black;
+    @apply font-bold;
+    @apply text-3xl;
+    background: cyan;
+    background: linear-gradient(cyan, rgb(231, 70, 204));
+    transform: rotateY(180deg);
+}
+
+.back:hover {
+    filter: hue-rotate(360deg);
+}
+
+.img {
+   @apply block;
+   @apply w-full;
+   @apply h-full;
+}
